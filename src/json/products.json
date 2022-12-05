@@ -1,0 +1,49 @@
+{
+    "products": [
+        {
+            "id":5,
+            "url":"#",
+            "title": "Джинсовка",
+            "text": "oversize",
+            "labels": "",
+            "image":"kurtka_asia.jpg",
+            "price": "3900",
+            "shareUrl": "",
+            "likeUrl": ""
+        },
+        {
+            "id":6,
+            "url":"#",
+            "title": "Джинсовка",
+            "text": "oversize",
+            "labels": "",
+            "image":"куртка (2).jpg",
+            "price": "4400",
+            "shareUrl": "",
+            "likeUrl": ""
+        },
+        {
+            "id":7,
+            "url":"#",
+            "title": "Джинсовка",
+            "text": "oversize",
+            "labels": "",
+            "image":"куртка.webp",
+            "price": "5799",
+            "shareUrl": "",
+            "likeUrl": ""
+        },
+        {
+            "id":8,
+            "url":"#",
+            "title": "Шоппер",
+            "text": "",
+            "labels": "",
+            "image":"шоппер3.jpg",
+            "price": "1800",
+            "shareUrl": "",
+            "likeUrl": ""
+        }
+        
+    ]
+}

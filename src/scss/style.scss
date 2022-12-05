@@ -1,0 +1,1242 @@
+@use "sass:math";
+//<МИКСИНЫ>===============================================================================================
+@import "mixins";
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+//&display=swap&subset=cyrillic-ext
+@import "fonts";
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+//@import "icons";
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontFamily: "Gilroy";
+$fontSize: 16;
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>==========================================================================================================
+$minWidth: 320px;
+$maxWidth: 14400;
+$maxWidthContainer: 1270;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+$mainColor: #000;
+
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null";
+body {
+	color: $mainColor;
+	&._lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	&._loaded {
+	}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+._container {
+	max-width: $maxWidthContainer + px;
+	padding: 0px 15px;
+	margin: 0 auto;
+	
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms";
+@import "ui";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "datepicker";
+@import "lightgallery";
+@import "popup";
+@import "header";
+@import "footer";
+
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+
+
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.page {
+	flex: 1 1 auto;
+	&__main-slider {
+	}
+
+	&__advantages {
+		//background-color: #6f00ff;
+		
+	}
+	&__gallery-castoms {
+	}
+
+	//&__presentation {
+	//}
+
+	&_connection {
+	}
+
+	&__products {
+	}
+
+	&__jobs {
+	}
+
+	
+}
+
+.main-slider__container{
+	max-width: $maxWidthContainer + px;
+}
+
+.main-slider {
+	background: rgba(206, 203, 199, 0.856);
+
+
+	&__container {
+		position: relative;
+		@media (min-width: $md2+px) {
+			&::before {
+				content: "";
+				background:rgba(227, 225, 222, 0.936);
+				position: absolute;
+				top:0;
+				width: 100vw;
+				right: 376px;
+				height: 100%;
+			}
+			
+		}
+	}
+
+	.main-slaider__body {
+		padding: 130px 0px 0px 0px;
+		position: relative;
+		z-index: 2;
+		@media (max-width: $md2+px) {
+			padding: 80px 0px 0px 0px;
+		}
+		@media (max-width: $md3+px) {
+			padding: 50px 0px 0px 0px;
+		}
+		@media (min-width: $md2+px) {
+			display: flex;
+		}
+	}
+
+	&__content {
+		flex: 0 0 494/1240 *100%;
+		@include adaptiv-value ("margin-bottom", 80, 1, 1); 
+		@media (max-width: $md2+px) {
+			margin: 0px -15px;
+		}
+	}
+
+	&__slider {
+		flex: 1 1 auto;
+		min-width: 0;
+		@media (min-width: $md2+px) {
+			padding: 0px 0px 0px 32px;
+		}
+	}
+
+	
+
+}
+
+
+.content-main {
+	position: relative;
+	z-index: 5;
+	padding-left: 15px;
+	padding-right: 15px;
+	background: rgba(240, 248, 255, 0.805);
+	@include adaptiv-value ("padding-top", 60, 1, 1); 
+	@include adaptiv-value ("padding-bottom", 60, 1, 1); 
+	@media (max-width: $md2+px) {
+		@include adaptiv-value ("padding", 60, 1, 1); 
+		background: rgba(240, 248, 255, 0.9);
+		@supports ((-webki-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+			background: rgba(240, 248, 255, 0.619);
+			backdrop-filter: blur(31px);
+		}
+	}
+
+	&__title {
+		@include adaptiv-value ("font-size", 56, 24, 1);
+		font-weight: 700;
+		line-height: 120%;
+		&:not(:last-child) {
+			margin: 0px 0px 16px/56px * 1em 0px;
+		}
+	}
+	
+	&__text {
+		@include adaptiv-value ("font-size", 20, 16, 1);
+		color: rgb(0, 0, 0);
+		&:not(:last-child) {
+			margin: 0px 0px 48px/50px * 1em 0px;
+		}
+	}
+
+	&__button{
+		font-weight: 600;
+		@include adaptiv-value ("min-height", 78, 45, 1);
+		@include adaptiv-value ("font-size", 20, 16, 1);
+		background-color: rgba(110, 156, 140, 0.99);
+		color: aliceblue;
+		width: 100%;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: rgba(95, 124, 115, 0.99);
+			}
+		}
+	}
+}
+
+.slider-main {
+	width: 80%;
+	//display: flex;
+	//flex-direction: column;
+	//align-items: flex-end;
+	@media (max-width: $md2+px) {
+		display: flex;
+		flex-direction: column-reverse;
+
+	}
+
+
+	&__controls {
+		align-self: stretch;
+		margin: 0px 0px 20px 0px;
+		@media (max-width: $md2+px) {
+			margin: 10px 0px 20px 0px;
+		}
+
+		
+	}
+
+	&__body {
+		overflow: visible;
+		@media (min-width: $md2+px) {
+			@include adaptiv-value ("width", 934, 290, 1);
+			@media (max-width: $md2+px) {
+				margin: 0px -15px;
+			}
+	}
+	}
+
+	&__image{
+		padding: 0px 0px 45% 0px;
+		//height: 550px;
+		
+	}
+
+	&__slide {
+		width: 80%;
+		
+		position: relative;
+	}
+
+
+	&__content {
+		max-width: 200px;
+		min-width: 290px;
+		max-height: 200px;
+		overflow: auto;
+		display: flex;
+		flex-direction: column;
+		color: inherit;
+		
+		@include adaptiv-value ("padding", 24, 15, 1); 
+		background: rgba(240, 248, 255, 0.219);
+		@media (min-width: $md3+px) {
+			position: absolute;
+			min-width: 200px;
+			@include adaptiv-value ("right", 700, 0, 1);
+			@include adaptiv-value ("bottom", 40, 0, 1);
+		}
+		@supports ((-webki-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+			background: rgba(240, 248, 255, 0.395);
+			backdrop-filter: blur(31px);
+		}
+
+	}
+
+	&__title {
+		line-height: 100%;
+		color: rgb(48, 64, 65);
+		&:not(:last-child) {
+			margin: 0px 0px 4px/28px * 1em 0px;
+		}
+
+	}
+
+	
+	&__text {
+		line-height: 150%;
+		color:rgb(48, 64, 65); 
+		&:not(:last-child) {
+			margin: 0px 0px 4px/28px * 1em 0px;
+		}
+	}
+
+	&__price {
+		display: flex;
+		flex-direction: row-reverse;
+		line-height: 100%;
+		align-items: center;
+		font-weight: 600;
+		justify-content: space-between;
+		@include adaptiv-value ("font-size", 20, 16, 1);
+		&::before {
+			margin: 0px 0px 0px 10px;
+		}
+	}
+}
+.animate-charcter
+{
+   //text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #155748 0%,
+    #107a58 29%,
+    #13f3ff 67%,
+    #6f00ff 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 60px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.controls-slider-main__arrows {
+	
+	max-width: 750px;
+	
+	//overflow: hidden;
+	
+	
+
+}
+.controls-slider-main__dotts {
+	
+	
+	@media (max-width: $md2+px) {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+
+//===================================================================================================================================
+//преимущества
+
+
+.advantages {
+
+	
+
+	&__container {
+		
+		width: 100%;
+		//@include adaptiv-value ("margin-top", 90, 44, 1);
+		@include adaptiv-value ("padding-top", 88, 30, 1);
+		@include adaptiv-value ("padding-bottom",88, 30, 1);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	&__item {
+		display: inline-grid;
+		padding: 15px 0;
+		grid-template: auto auto   85px  ;
+		transform: translate(0px, 100px);
+		opacity: 0;
+		transition: all 0.8s ease 0s;
+		&._active {
+			transform: translate(0px, 0px);
+			opacity: 1;
+		}
+
+	}
+
+	&__icon {
+		text-align: center;
+		align-self: center;
+		grid-row: span 2;
+		@media (max-width: $md3 +px) {
+			padding: 0px 15px 0px 0px;
+		}
+	}
+
+	&__title {
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 150%;
+		margin:  math.div(2px, 18px) * 1em 0px;
+	}
+}
+
+	
+
+
+//===================================================================================================================================
+//презентация услуг
+
+//<кастом и интерьер слайдер>====================================================================================================
+//кастом
+.castoms-gallery {
+	background: rgb(234, 228, 221);
+	//background-image: url("/img/lots/composition-of-messy-stationery-tools-for-drawing.jpg") ;
+.castoms {
+	position: relative;
+	@include adaptiv-value ("padding-top", 44, 30, 1);
+	@include adaptiv-value ("padding-bottom", 44, 30, 1);
+
+	&__container {
+		
+		@media (min-width: $md2+px) {
+			display: flex;
+		}
+	}
+
+	&__body {
+		flex: 0 0 math.div(465, 1240) * 100%;
+		position: relative;
+		z-index: 5;
+		align-self: center;
+		@media (min-width: $md2+px) {
+			@include adaptiv-value ("padding-rigth", 80, 30, 1);
+
+		}
+		@media (max-width: $md2+px) {
+			margin: 0px 0px 30px 0px;
+
+		}
+
+		.waviy {
+			span {
+			position: relative;
+			display: inline-block;
+			font-size: 40px;
+			font-weight: 500;
+			color: rgb(4, 4, 4);
+			text-transform: uppercase;
+			animation: flip 2s infinite;
+			animation-delay: calc(.2s * var(--i))
+			}
+		  
+		  @keyframes flip {0%,80% {
+			  transform: rotateY(360deg) 
+			}
+		  }
+		}
+	}
+	  
+	&__title {
+		&:not(:last-child) {
+		margin: 0px 0px math.div(8px, 40px) * 1em 0px;
+		}
+		text-align: left;
+	}
+
+	&__text {
+		padding-right: 10%;
+		line-height: 150%;
+		font-weight: 500;
+		&:not(:last-child) { 
+			margin: 0px 0px 24px 0px;
+		}
+	}
+
+	&__button {
+		font-weight: 600;
+		@include adaptiv-value ("min-height", 78, 45, 1);
+		@include adaptiv-value ("font-size", 20, 16, 1);
+		background-color: rgba(110, 156, 140, 0.99);
+		color: aliceblue;
+		min-width: 180px;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: rgba(95, 124, 115, 0.99);
+			}
+		}
+	}
+
+	&__slider {
+		flex: 1 1 auto;
+		min-width: 0;
+		
+	}
+	
+}
+
+
+	._container {
+	
+
+	&_title {
+	}
+
+	&_swiper {
+	}
+
+	&_ibg {
+	}
+
+	&_icon-arrow-link {
+	}
+}
+.btn {
+}
+.slider-castoms {
+	position: relative;
+	
+	&__body {
+		//width: 100%;	
+		//overflow: visible;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto;
+		overflow: hidden;
+		position: relative;
+		&::before{
+			content: "";
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 100vw;
+			//left: 0;
+			background-color:  rgb(234, 228, 221);
+			z-index: 2;
+			transform: translate(-100%, 0px) ;
+		}
+	}
+
+
+
+	&__slide {
+		
+		position: relative;
+		overflow: hidden;
+		display:flex;
+  align-items:center;
+  justify-content: center;
+		@include adaptiv-value ("min-height", 585, 400, 1);
+		
+		&.active {
+			.slider-castoms__image{
+				
+				
+			}
+		}
+
+
+		.slider-castoms__image {
+			transition: height 0.8s ease 0s;
+			background-size: cover;
+			display: block;
+			//height: 100%;
+			//width: 100%;
+			margin: 0 auto;
+			justify-content: center;
+			align-items: center;
+			@media (min-width: $md3+px) {
+				height: 83%;
+				
+			}
+			img{
+				display:block;
+			}
+		}
+
+
+
+	}
+
+
+
+	&__content {
+	}
+
+	&__label {
+	}
+
+	&__arrows {
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		transform: translate(0px, -50%);
+		width: calc(100% - 48px);
+		left: 24px;
+		z-index: 5;
+		justify-content: space-between;
+		@media (min-width: $md1+px) {
+			left: -24px;
+			width: calc(100% + 48px);
+			
+		}
+	}
+
+	&__dotts {
+		@media (min-width: $md3+px) {
+			position: absolute;
+			width: 100%;
+			margin-left: -300px;
+			padding-bottom: 100px;
+			z-index: 6;
+
+		}
+	}
+}
+.label-slider {
+}
+.slider-arrows {
+}
+.slider-arrow {
+
+	&_white {
+	}
+
+	&_prev {
+		background-color: rgba(240, 248, 255, 0.796);
+		@media (any-hover: hover){
+			&:hover {
+				background-color: rgb(240, 248, 255);
+			}
+		}
+	}
+
+	&_next {
+		background-color:  rgba(240, 248, 255, 0.834);
+		@media (any-hover: hover){
+			&:hover {
+				background-color: rgb(240, 248, 255);
+			}
+		}
+	}
+}
+
+
+///интерьер
+.decor {
+	@include adaptiv-value ("padding-top", 44, 30, 1);
+	@include adaptiv-value ("padding-bottom", 44, 30, 1);
+	position: relative;
+
+	&__container {
+		
+		@media (min-width: $md2+px) {
+			display: flex;
+			flex-direction: row-reverse;
+		}
+	}
+
+	&__body {
+		
+		flex: 0 0 math.div(465, 1240) * 100%;
+		position: relative;
+		z-index: 5;
+		height: 100%;
+		align-self: center;
+		@media (min-width: $md2+px) {
+			@include adaptiv-value ("padding-rigth", 80, 30, 1);
+
+		}
+		@media (max-width: $md2+px) {
+			margin: 0px 0px 30px 0px;
+
+		}
+		.waviy {
+			padding-left: 20%;
+		&:not(:last-child) { 
+			margin: 15px 0px 0px 0px;
+		}
+			span {
+			position: relative;
+			display: inline-block;
+			font-size: 35px;
+			
+			font-weight: 500;
+			color: rgb(4, 4, 4);
+			text-transform: uppercase;
+			animation: flip 2s infinite;
+			animation-delay: calc(.2s + var(--i))
+			}
+		  
+		  @keyframes flip {0%,80% {
+			  transform: rotateY(360deg) 
+			}
+		  }
+		}
+	}
+
+	&__title {
+		line-height: 1;
+		&:not(:last-child) {
+			margin: 0px 0px math.div(8px, 40px) * 1em 0px;
+			}
+			text-align: right;
+	}
+
+	&__text {
+		line-height: 150%;
+		font-weight: 500;
+		padding-left: 20%;
+		&:not(:last-child) { 
+			margin: 30px 0px 24px 0px;
+		}
+
+	}
+
+	&__button {
+	}
+
+	&__slider {
+		flex: 1 1 auto;
+		min-width: 0;
+		align-self: flex-end;
+	}
+}
+/*. {
+
+	&_container {
+	}
+
+	&_title {
+	}
+
+	&_icon-arrow-link {
+	}
+
+	&__swiper {
+	}
+}*/
+.btn {
+}
+
+.slider-decor {
+	position: relative;
+
+	&__body {
+		width: 372px;	
+		overflow: visible;
+		position: relative;
+
+		&::before{
+			content: "";
+			align-self: flex-end;
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 650px;
+			left: 35%;
+			background-color:  rgb(234, 228, 221);
+			z-index: 2;
+			transform: translate(100%, 0px) ;
+		}
+	}
+
+	&__slide {
+		position: relative;
+		overflow: hidden;
+		@include adaptiv-value ("min-height", 585, 400, 1);
+	}
+
+	&__image {
+	}
+
+	&__content {
+	}
+
+	&__label {
+	}
+
+	&__arrows {
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		transform: translate(0px, -50%);
+		width: calc(100% + 48px);
+		left: -24px;
+		z-index: 5;
+		justify-content: space-between;
+	}
+
+	&__dotts2 {
+		@media (min-width: $md3+px) {
+			position: absolute;
+			width: 100%;
+			margin-left: 1000px;
+			padding-bottom: 100px;
+			z-index: 6;
+
+		}
+	}
+}
+.label-slider {
+}
+.slider-arrows {
+}
+.slider-arrow {
+
+	&_white {
+	}
+
+	&_prev2 {
+		background-color:  rgba(240, 248, 255, 0.826);
+		@media (any-hover: hover){
+			&:hover {
+				background-color: rgb(240, 248, 255);
+			}
+		}
+	}
+
+	&_next2 {
+		background-color:  rgba(240, 248, 255, 0.79);
+		@media (any-hover: hover){
+			&:hover {
+				background-color: rgb(240, 248, 255);
+			}
+		}
+	}
+}
+
+}
+
+
+
+
+
+
+
+
+//===================================================================================================================================
+
+
+.connection {
+	background-image: url(/img/lots/art-studio_edited.jpg);
+	margin-top: 50px;
+
+	&__title {
+		color: white;
+	}
+
+	&__container {
+		color: white;
+		width: 100%;
+		height: 600px
+	}
+
+	&__content {
+		padding-top: 7%;
+	}
+
+	.most-upstairs {
+		height: 68px;
+		margin: 18px 0;
+	  }
+	  .storona-uveka {
+		width: 0;
+		height: 40px;
+		border: 5px solid #ffffff;
+		position: relative;
+		animation: scroll 1.7s infinite;
+		margin: auto;
+	  }
+	  .storona-uveka::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 100%;
+		left: -15px;
+		width: 1px;
+		height: 10px;
+		border-top: 10px solid #ffffff;
+		border-left: 15px solid transparent;
+		border-right: 15px solid transparent;
+	  }
+	  @keyframes scroll {
+		0% {
+		height: 40px;
+		}
+		30% {
+		height: 70px;
+		}
+		60% {
+		height: 40px;
+		}
+	  }
+	  
+
+	&__button {
+		line-height: 150%;
+		font-weight: 600;
+		font-size: larger;
+		border: 2px solid;
+		padding: 7px;
+		display: block;
+		margin: 0 auto;
+		color: white;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: rgba(230, 230, 230, 0.612);
+			}
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+//<МАГАЗИН>====================================================================================================
+
+
+.products {
+	@include adaptiv-value ("padding-bottom", 44, 30, 1);
+
+	&__container {
+	}
+
+	&__title {
+		margin: 0px 0px math.div(32px, 40px) * 1em 0px;
+	}
+
+	&__items {
+		display: grid;
+		gap: 32px;
+		grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+
+	}
+
+	&__item {
+	}
+
+	&__footer {
+		padding: 32px 0px 0px 0px;
+		text-align: center;
+	}
+	&__more{
+		border: 1px solid rgb(130, 177, 156);
+		min-width: 245px;
+		&._hold {
+			opacity: 0.4;
+			cursor: pointer;
+		}
+	}
+}
+
+.item-product {
+	background: rgb(220, 216, 209);
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	@media (any-hover: hover) {
+		&:hover {
+			.item-product__actions{
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		
+	}
+
+	&__labels {
+		position: absolute;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		@include adaptiv-value ("right", 24, 10, 1);
+		@include adaptiv-value ("top", 24, 10, 1);
+	}
+
+	&__label {
+		flex: 0 0 48px;
+		width: 48px;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		font-weight: 500;
+		&:not(:last-child) {
+			margin: 0px 0px 10px 0px;
+		}
+		&_sale {
+			background: crimson;
+
+		}
+	}
+
+	&__image {
+		padding: 0px 0px math.div(391px, 285px) * 1em 0px;
+		height: 356px;
+	
+	}
+
+	&__body {
+		flex: 1 1 auto;
+		padding: 16px 16px 30px 16px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__content {
+		flex: 1 1 auto;
+	}
+
+	&__title {
+		@include adaptiv-value ("font-size", 24, 20, 1);
+		font-weight: 600;
+		line-height: 120%;
+		margin: 0px 0px math.div(8px, 24px) * 1em 0px; 
+	}
+
+	&__text {
+		color: rgb(127, 124, 124);
+		line-height: 150%;
+		margin: 0px 0px math.div(8px, 24px) * 1em 0px;
+	}
+
+	&__prices {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		line-height: 150%;
+	}
+
+	&__price {
+		@include adaptiv-value ("font-size", 20, 16, 1);
+		font-weight: 600;
+
+		&_old {
+			@include adaptiv-value ("font-size", 16, 14, 1);
+			margin: 0px 0px 0px 16px;
+			color: darkred;
+			text-decoration: line-through;
+		}
+	}
+
+	&__actions {
+		@media (any-hover: none) {
+			padding: 15px 0px 0px 0px;
+		}
+		@media (any-hover: hover) {
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: all 0.3s ease 0s;
+			background: rgba(241, 240, 240, 0.747);
+			z-index: 3;
+		} 
+	}
+}
+.actions-product {
+
+	&__body {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		padding: 0px 10px 0px 10px;
+		
+	}
+
+	&__button {
+		flex: 1 1 100%;
+		&:not(:last-child){
+			margin: 0px 0px 24px 0px;
+		}
+		&._hold {
+			opacity: 0.4;
+			cursor: pointer;
+		}
+
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		color: inherit;
+		font-weight: 600;
+		transition: color 0.3s ease 0s;
+		&::before{
+			margin: 0px 10px 0px 0px;
+			font-size: 16px;
+		}
+		@media (any-hover: hover) {
+			color: aliceblue;
+			&:hover {
+				color:  rgba(111, 77, 53, 0.727);
+			}
+			
+		}
+	}
+}
+
+
+//<ГАЛЛЕРЕЯ РАБОТ>====================================================================================================
+
+.jobs {
+	@include adaptiv-value ("padding-bottom",85 , 40, 1);
+
+	&__container {
+	}
+
+	&__label {
+	}
+
+	&__title {
+	}
+
+	&__body {
+		position: relative;
+		@media (any-hover:none) {
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+
+		}
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: auto;
+		grid-auto-flow:column ;
+		align-items: center;
+		gap: 16px;
+		@media (any-hover: hover) {
+			justify-content: center;
+
+
+		}
+
+	}
+
+	&__column {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin: 0px -8px;
+		&:first-child {
+			justify-content: flex-end;
+
+		}
+	}
+
+	&__row {
+		display: inline-grid;
+		padding: 0px 8px;
+		gap: 16px;
+		grid-template-columns: auto;
+		grid-auto-flow:column ;
+		&:not(:last-child){
+			margin: 0px 0px 16px 0px;
+		}
+		
+		
+	}
+}
+
+.row-jobs {
+
+	&_left-top {
+		justify-content: end;
+		align-items: end;
+
+	}
+
+	&_left-bottom {
+		justify-content: end;
+		align-items: start;
+	}
+
+	&_center {
+		display: block;
+	}
+
+	&_right-top {
+		align-items: end;
+	}
+
+	&_right-bottom {
+		align-items: start;
+	}
+
+	&__item {
+		@media (any-hover: hover) {
+			img {
+				transition: all 0.8s ease 0s;
+				filter: grayscale(1);
+			}
+			&:hover {
+				img {
+					filter: grayscale(0);
+				}
+			}
+
+
+		}
+	}
+}
+
+
+
+
+//</------->====================================================================================================

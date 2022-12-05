@@ -1,0 +1,287 @@
+//====================================================================================================
+.popup {
+	-webkit-overflow-scrolling: touch;
+	z-index: 100;
+	padding: 30px 10px;
+	position: fixed;
+	top: 0px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: visibility 0.8s ease 0s;
+	visibility: hidden;
+	&::before {
+		content: "";
+		background-color: rgba(0, 0, 0, 0.9);
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transition: opacity 0.8s ease 0s;
+	}
+	&.show {
+		visibility: visible;
+		overflow: auto;
+		&::before {
+			opacity: 1;
+		}
+		.popup__body {
+			transform: scale(1);
+		}
+	}
+	&._active {
+		overflow: auto;
+		visibility: visible;
+		&::before {
+			opacity: 1;
+		}
+		.popup__body {
+			transition: all 0.3s ease 0.2s;
+			transform: scale(1);
+		}
+
+	}
+	// .popup__content
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-height: 100%;
+		flex: 1 1 auto;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	// .popup__body
+	&__body {
+		transform: scale(0);
+		transition: all 0.3s ease 0s;
+		background-color: #fff;
+		padding: 50px;
+		width: 100%;
+		max-width: 800px;
+	}
+	// .popup__close
+	&__close {
+		width: 45px;
+		height: 45px;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		cursor: pointer;
+		z-index: 30;
+		background: url("/img/icons/menu/4115230-cancel-close-cross-delete_114048.png") 0 0 no-repeat;
+	}
+}
+//====================================================================================================
+//item-product
+.popup {
+	
+
+	&__body {
+		
+	}
+
+	&__close {
+	}
+}
+.item-product {
+	
+	
+
+	.body-popap__item {
+		display: flex;
+		flex-direction: row;
+		flex:2 1 auto;
+		background-color: #fff;
+		
+		
+	}
+	
+	&__image {
+		
+	}
+
+	&__content {
+		margin: 0 0 0 100px  ;
+		
+	}
+
+	.button-popap__item {
+		padding-top:  10px;
+	}
+
+	&__title {
+	}
+
+	&__text {
+	}
+
+	&__prices {
+	}
+
+	&__price {
+
+		&_old {
+		}
+	}
+}
+
+
+
+.body-popap {
+
+	&__item {
+	}
+}
+
+.image-popap {
+
+	&__item {
+		img {
+			width: 285px;
+			height: 356px;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+		}
+	}
+}
+.content-popap {
+
+	&__item {
+		
+	}
+}
+.title-popap {
+
+	&__item {
+	}
+}
+.text-popap {
+
+	&__item {
+	}
+}
+.actions-product {
+
+	&__body {
+	}
+
+	&__button {
+	}
+}
+.button-popap {
+
+	&__item {
+		width: 250px;
+	}
+}
+.btn {
+
+	&_white {
+	}
+}
+.prices-popap {
+
+	&__item {
+	}
+}
+
+
+//====================================================================================================
+
+.popup {
+	
+	&_consultation {
+		
+	}
+
+	&__content {
+		
+		
+	}
+
+	&__body {
+	}
+
+	&__close {
+	}
+}
+.obratnuj-zvonok {
+	width: 100%;
+	max-width: 550px;
+	margin: 0 auto;
+	
+	
+}
+
+input {
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+.form-zvonok {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	
+	justify-content: center;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+.form-zvonok div{
+	padding: 15px 0;
+}
+.bot-send-mail{
+	box-sizing: border-box;
+	width: 100%;
+}
+.form-zvonok label,.form-zvonok input{
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+.form-zvonok label{
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+.form-zvonok input{
+	padding: 10px 15px;
+	margin-top: 10px;
+}
+.form-zvonok label span{
+	color: red;
+}
+.form-zvonok .bot-send-mail{
+	padding: 15px;
+	margin-top: 10px;
+	background: none;
+	border: none;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: bold;
+	background-color: #009b97;
+	cursor: pointer;
+	border: 3px #009b97 solid;
+	border-radius: 5px;
+}
+.form-zvonok .bot-send-mail:hover{
+	color: #009b97;
+	background-color: #fff;
+}
+._consultation {
+	text-align: center;
+	font-size: 20px;
+	line-height: 150%;
+	font-weight: 500;
+}
+.title_consultation{
+	@include adaptiv-value ("font-size", 30, 24, 1);
+	font-weight: 700;
+	line-height: 220%;
+	text-align: center;
+}
