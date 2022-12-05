@@ -6,8 +6,7 @@
 	"private": true,
 	"license": "GNU General Public License (GPL)",
 	"scripts": {
-		"start": "npx gulp",
-		"build": "npx gulp build"
+		"start": "npx gulp"
 	},
 	"devDependencies": {
 		"browser-sync": "latest",
