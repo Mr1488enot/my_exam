@@ -5,9 +5,6 @@
 	"author": "FLS",
 	"private": true,
 	"license": "GNU General Public License (GPL)",
-	"scripts": {
-		"start": "npx gulp"
-	},
 	"devDependencies": {
 		"browser-sync": "latest",
 		"del": "6.1.1",

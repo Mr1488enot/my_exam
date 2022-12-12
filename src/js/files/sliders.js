@@ -103,6 +103,12 @@ if(document.querySelector('.slider-castoms__body')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		autoplay: {
+			delay:1000,
+			stopOnLastSlide: true,
+			disableOnInteraction: false,
+			
+		},
 		//Dots
 		pagination: {
 			el: '.slider-castoms__dotts',
@@ -129,6 +135,12 @@ if(document.querySelector('.slider-decor__body')) {
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
+		autoplay: {
+			delay:1000,
+			stopOnLastSlide: true,
+			disableOnInteraction: false,
+			
+		},
 		//Dots
 		pagination: {
 			el: '.slider-decor__dotts2',

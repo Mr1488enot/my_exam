@@ -197,7 +197,9 @@ body {
 	
 	&__text {
 		@include adaptiv-value ("font-size", 20, 16, 1);
-		color: rgb(0, 0, 0);
+		color: rgb(90, 89, 89);
+		font-weight: 600;
+		line-height: 150%;
 		&:not(:last-child) {
 			margin: 0px 0px 48px/50px * 1em 0px;
 		}
@@ -242,6 +244,7 @@ body {
 	}
 
 	&__body {
+		min-width: 0;
 		overflow: visible;
 		@media (min-width: $md2+px) {
 			@include adaptiv-value ("width", 934, 290, 1);
@@ -253,14 +256,12 @@ body {
 
 	&__image{
 		padding: 0px 0px 45% 0px;
-		height: 550px;
-		
-		
+		//height: 550px;
 		
 	}
 
 	&__slide {
-		width: 100%;
+		width: 80%;
 		
 		position: relative;
 	}
@@ -361,11 +362,11 @@ body {
 }
 .controls-slider-main__dotts {
 	
-	
-	@media (max-width: $md2+px) {
+	display: none;
+	/*@media (max-width: $md2+px) {
 		display: flex;
 		justify-content: center;
-	}
+	}*/
 }
 
 
@@ -374,7 +375,27 @@ body {
 
 
 .advantages {
+	
+	
+	&__content {
+		//background-image: url("/img/lots/composition-of-messy-stationery-tools-for-drawing.jpg") ;
+		background-image: url("/img/bacground/312825-cabaaf.svg") ;
+		background-size: no-repeat;
+		margin-bottom: 80px;
 
+		
+		._title {
+			color: rgb(90, 89, 89);
+			margin-top: 80px;
+			transform: translate(0px, 300px);
+			opacity: 0;
+			transition: all 0.8s ease 0s;
+			&._active {
+			transform: translate(0px, 0px);
+			opacity: 1;
+		}
+		}
+	}
 	
 
 	&__container {
@@ -387,14 +408,14 @@ body {
 		flex-wrap: wrap;
 		justify-content: space-between;
 	}
-
+	
 	&__item {
 		display: inline-grid;
 		padding: 15px 0;
 		grid-template: auto auto   85px  ;
-		transform: translate(0px, 100px);
+		transform: translate(0px, 300px);
 		opacity: 0;
-		transition: all 0.8s ease 0s;
+		transition: all 1s ease 0s;
 		&._active {
 			transform: translate(0px, 0px);
 			opacity: 1;
@@ -411,12 +432,16 @@ body {
 		}
 	}
 
-	&__title {
+	
+
+	&__text {
+		color: rgb(77, 77, 77);
+		text-align: center;
 		font-weight: 600;
-		font-size: 18px;
-		line-height: 150%;
-		margin:  math.div(2px, 18px) * 1em 0px;
+		font-size: 25px;
+		width: 250px;
 	}
+	
 }
 
 	
@@ -476,6 +501,7 @@ body {
 	}
 	  
 	&__title {
+		color: rgb(90, 89, 89);
 		&:not(:last-child) {
 		margin: 0px 0px math.div(8px, 40px) * 1em 0px;
 		}
@@ -483,9 +509,12 @@ body {
 	}
 
 	&__text {
+		@include adaptiv-value ("font-size", 25, 10, 1);
 		padding-right: 10%;
+		color: rgb(90, 89, 89);
+		font-weight: 600;
 		line-height: 150%;
-		font-weight: 500;
+		
 		&:not(:last-child) { 
 			margin: 0px 0px 24px 0px;
 		}
@@ -516,7 +545,7 @@ body {
 
 
 	._container {
-	
+	margin-top: 100px;
 
 	&_title {
 	}
@@ -610,26 +639,27 @@ body {
 		position: absolute;
 		top: 50%;
 		transform: translate(0px, -50%);
-		width: calc(100% - 48px);
-		left: 24px;
+		width: calc(92% );
+		left: 6%;
 		z-index: 5;
 		justify-content: space-between;
 		@media (min-width: $md1+px) {
-			left: -24px;
-			width: calc(100% + 48px);
+			left: 3%;
+			width: calc(93%);
 			
 		}
 	}
 
 	&__dotts {
-		@media (min-width: $md3+px) {
+		display: none;
+		/*@media (min-width: $md3+px) {
 			position: absolute;
 			width: 100%;
 			margin-left: -300px;
 			padding-bottom: 100px;
 			z-index: 6;
 
-		}
+		}*/
 	}
 }
 .label-slider {
@@ -677,7 +707,7 @@ body {
 
 	&__body {
 		
-		flex: 0 0 math.div(465, 1240) * 100%;
+		flex: 0 0 math.div(500, 1240) * 100%;
 		position: relative;
 		z-index: 5;
 		height: 100%;
@@ -723,9 +753,14 @@ body {
 	}
 
 	&__text {
+		@include adaptiv-value ("font-size", 25, 10, 1);
+		padding-right: 10%;
+		color: rgb(90, 89, 89);
+		font-weight: 600;
 		line-height: 150%;
-		font-weight: 500;
-		padding-left: 20%;
+		padding-right: 0;
+		
+		margin-left: 10%;
 		&:not(:last-child) { 
 			margin: 30px 0px 24px 0px;
 		}
@@ -762,31 +797,58 @@ body {
 	position: relative;
 
 	&__body {
-		width: 372px;	
-		overflow: visible;
+		//width: 100%;	
+		//overflow: visible;
+		
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto;
+		overflow: hidden;
 		position: relative;
-
 		&::before{
 			content: "";
-			align-self: flex-end;
 			position: absolute;
 			top: 0;
 			height: 100%;
-			width: 650px;
-			left: 35%;
+			width: 100vw;
+			//left: 0;
 			background-color:  rgb(234, 228, 221);
 			z-index: 2;
-			transform: translate(100%, 0px) ;
+			transform: translate(-100%, 0px) ;
 		}
+		
 	}
+		
 
+	
 	&__slide {
+		align-items:center;
+  justify-content: center;
 		position: relative;
 		overflow: hidden;
 		@include adaptiv-value ("min-height", 585, 400, 1);
+		.slider-decor__image {
+			transition: height 0.8s ease 0s;
+			background-size: cover;
+			display: block;
+			//height: 100%;
+			//width: 100%;
+			margin: 0 auto;
+			justify-content: center;
+			align-items: center;
+			@media (min-width: $md3+px) {
+				height: 83%;
+				
+			}
+			img{
+				margin: 0 auto;
+				display:block;
+			}
+		}
 	}
 
 	&__image {
+		
 	}
 
 	&__content {
@@ -800,23 +862,25 @@ body {
 		position: absolute;
 		top: 50%;
 		transform: translate(0px, -50%);
-		width: calc(100% + 48px);
-		left: -24px;
+		width: calc(96% );
+		left: 2%;
 		z-index: 5;
 		justify-content: space-between;
 	}
 
 	&__dotts2 {
-		@media (min-width: $md3+px) {
+		display: none;
+		/*@media (min-width: $md3+px) {
 			position: absolute;
 			width: 100%;
 			margin-left: 1000px;
 			padding-bottom: 100px;
 			z-index: 6;
 
-		}
+		}*/
 	}
 }
+
 .label-slider {
 }
 .slider-arrows {
@@ -868,7 +932,7 @@ body {
 	&__container {
 		color: white;
 		width: 100%;
-		height: 800px
+		height: 600px
 	}
 
 	&__content {

@@ -95,9 +95,8 @@ window.onload = function () {
 			const productTitle = item.title;
 			const productText = item.text;
 			const productPrice = item.price;
-			const productOldPrice = item.priceOld;
-			const productShareUrl = item.shareUrl;
-			const productLikeUrl = item.likeUrl;
+			const productPodrobnee = item.priceOld;
+			
 			const productLabels = item.labels;
 
 			let productTemplateStart = `<article data-pid="${productId}" class="products__item item-product">`;
@@ -137,12 +136,13 @@ window.onload = function () {
 			let productTemplatePrices = '';
 			let productTemplatePricesStart = `<div class="item-product__prices">`;
 			let productTemplatePricesCurrent = `<div class="item-product__price"> ${productPrice}</div>`;
-			let productTemplatePricesOld = `<div class="item-product__price item-product__price_old">Rp ${productOldPrice}</div>`;
+			let productTemplatePodrobnee = `<div class="actions-product__btn_podrobnee _popup-link btn_white">Rp ${productPodrobnee}</div>`;
 			let productTemplatePricesEnd = `</div>`;
+			let productpopap = ``
 
 			productTemplatePrices = productTemplatePricesStart;
 			productTemplatePrices += productTemplatePricesCurrent;
-			if (productOldPrice) {
+			if (productPodrobnee) {
 				productTemplatePrices += productTemplatePricesOld;
 			}
 			productTemplatePrices += productTemplatePricesEnd;
@@ -150,19 +150,7 @@ window.onload = function () {
 			let productTemplateActions = `
 		<div class="item-product__actions actions-product">
 			<div class="actions-product__body">
-				<a href="" class="actions-product__button btn btn_white">Добавить в корзину</a>
-                <div class="actions-product__link">
-                <a href="${productShareUrl}" class="actions-product__link">
-					<img src="img/icons/menu/export_sharing_connection_share_icon_229089.svg" alt="" width = "30" height = "30">
-						Поделиться
-				</a>
-				</div>
-				<div class="actions-product__link">
-                <a href="${productLikeUrl}" class="actions-product__link">
-				<img src="img/icons/menu/feedback_like_heart_favorite_love_icon_229088.svg" alt="" width = "30" height = "30">
-						Нравится
-					</a>
-					</div>
+			<a href="${productPodrobnee},   data-pid="2" class="actions-product__btn_podrobnee _popup-link btn_white ">Подробнее</a>
 				
 			</div>
 		</div>
@@ -277,6 +265,7 @@ window.onload = function () {
 				<div class="cart-list__quantity">Количество: <span>1</span></div>
 				<a href="" class="cart-list__delete">Удалить</a>
 				
+				
 			</div>`;
 				cartList.insertAdjacentHTML('beforeend', `<li data-cart-pid="${productId}" class="cart-list__item">${cartProductContent}</li>`);
 			} else {
@@ -358,4 +347,8 @@ if (jobs && !isMobile.any()) {
 		}
 	});
 }
+
+
+
+
 
