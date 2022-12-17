@@ -392,26 +392,33 @@ function digi_animate_value(el, start, end, duration) {
 let popup_link = document.querySelectorAll('._popup-link');
 let popups = document.querySelectorAll('.popup');
 
-for (let index = 0; index < popup_link.length; index++) {
-	const el = popup_link[index];
-	el.addEventListener('click', function (e) {
-		if (unlock) {
-			console.log('test')
-			let item = el.getAttribute('href').replace('#', '');
-			let dataId = el.getAttribute('data-pid');
-			popup_open(item, dataId );
-		}
-		e.preventDefault();
-	})
+popup_init(popup_link, popups)
+
+function popup_init(popup_link, popups) {
+	for (let index = 0; index < popup_link.length; index++) {
+		const el = popup_link[index];
+		el.addEventListener('click', function (e) {
+			if (unlock) {
+				console.log('test')
+				let item = el.getAttribute('href').replace('#', '');
+				let dataId = el.getAttribute('data-pid');
+
+				console.log(item, dataId)
+				popup_open(item, dataId );
+			}
+			e.preventDefault();
+		})
+	}
+	for (let index = 0; index < popups.length; index++) {
+		const popup = popups[index];
+		popup.addEventListener("click", function (e) {
+			if (!e.target.closest('.popup__body')) {
+				popup_close(e.target.closest('.popup'));
+			}
+		});
+	}
 }
-for (let index = 0; index < popups.length; index++) {
-	const popup = popups[index];
-	popup.addEventListener("click", function (e) {
-		if (!e.target.closest('.popup__body')) {
-			popup_close(e.target.closest('.popup'));
-		}
-	});
-}
+
 function popup_open(item, dataId = '') {
 	let activePopup = document.querySelectorAll('.popup._active');
 	if (activePopup.length > 0) {

@@ -93,7 +93,7 @@
 			overflow: auto;
 			top: 30px;
 			left: 0;
-			background-color: azure;
+			//background-color: azure;
 			transition: left 0.3s ease 0s;
 			padding: 70px 15px 30px 15px;
 
@@ -142,6 +142,9 @@
 		font-weight: 500;
 		color: inherit;
 		transition: color 0.3s ease 0s;
+		&._active {
+			color: rgb(44, 189, 146);
+		}
 		
 	}
 }
@@ -239,6 +242,7 @@
 	}
 
 	&__quantity {
+		
 		position: relative;
 		font-size: 14px;
 		margin: 0px 0px math.div(5px, 16px) * 1em 0px;
@@ -255,6 +259,18 @@
 	&__delete {
 		color: red;
 		font-size: 14;
+		@media (any-hover: hover){
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.cart__fullprice {
+		border: 1px solid;
+		margin-top: 23px;
+		margin-left: 150px;
+		padding: 2px;
 		@media (any-hover: hover){
 			&:hover {
 				text-decoration: underline;

@@ -103,6 +103,12 @@ body {
 	&__products {
 	}
 
+
+
+	&__certificate {
+	}
+
+
 	&__jobs {
 	}
 
@@ -592,8 +598,8 @@ body {
 		position: relative;
 		overflow: hidden;
 		display:flex;
-  align-items:center;
-  justify-content: center;
+ 		 align-items:center;
+  		justify-content: center;
 		@include adaptiv-value ("min-height", 585, 400, 1);
 		
 		&.active {
@@ -1196,6 +1202,104 @@ body {
 		}
 	}
 }
+
+
+
+//<СЕРТИФИКАТ>====================================================================================================
+
+
+.certificate {
+	margin: 0 auto;
+		display: block;
+	
+	&__container {
+		
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 710px;
+		background-image: url(/img/lots/IMG_1817.jpeg);
+		opacity: 0.5;
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		border-color: transparent;
+		border-style: solid;
+		@media screen and (max-width: 1199px) {
+			background-attachment: scroll;
+		}
+			
+		
+		
+	}
+
+	&__content {
+		
+		padding: 15px;
+		width: 950px;
+		height: 350px;
+		
+		margin: 0 auto;
+		border-width: 5px;
+    	border-color: #f5f5f5;
+    	border-style: solid;
+	}
+}
+.title {
+
+	&__certificate-title {
+		@include adaptiv-value ("font-size", 44, 24, 1);
+		@include adaptiv-value ("margin-top", 24, 10, 1);
+		text-align: center;
+		font-weight: 600;
+		line-height: 120%;
+		margin: 0px 0px math.div(8px, 24px) * 1em 0px; 
+		color: #ffffff
+	}
+}
+.text {
+
+	&__certificate-text {
+		@include adaptiv-value ("font-size", 24, 10, 1);
+		@include adaptiv-value ("margin-top", 24, 10, 1);
+		text-align: center;
+		font-weight: 400;
+		line-height: 120%;
+		margin: 0px 0px math.div(8px, 24px) * 1em 0px; 
+		color: #ffffff
+	}
+}
+.button__certificate {
+		width: 100%;
+		display: flex;
+		align-items: center;
+  		justify-content: center;
+		margin: 0 auto;
+		@include adaptiv-value ("font-size", 24, 10, 1);
+		padding: 0px 15px;
+		font-weight: 400;
+		line-height: 120%;
+		margin: 0px 0px math.div(8px, 24px) * 1em 0px; 
+		color: #ffffff;
+		
+	button {
+		width: 150px;
+		height: 150px;
+		@include adaptiv-value ("margin-top", 34, 14, 1);
+		color: #ffffff;
+		border: 2px solid  #ffffff ;
+		border-radius: 200px;
+		a {
+			color: #ffffff;
+		}
+	}
+}
+
+
+
+
+
 
 
 //<ГАЛЛЕРЕЯ РАБОТ>====================================================================================================

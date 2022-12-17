@@ -299,3 +299,132 @@ input {
 
 //связаться с нами====================================================================================================
 
+
+
+//spollers====================================================================================================
+
+
+
+
+.popup {
+
+	&_oplata {
+	}
+
+	&__content {
+	}
+
+	&__body {
+	}
+	.logotip {
+		display: flex;
+		margin: 0 auto;
+		align-items: center;
+		justify-content: center;
+	}
+	&__close {
+	}
+}
+.block {
+	margin: 25px;
+	border-top:  1px solid black;
+	
+	padding: 10px;
+	
+
+	&_1 {
+	}
+
+	&__item {
+	}
+
+	&__title {
+		width: 100%;
+		text-align: left;
+		position: relative;
+		padding-bottom: 10px;
+		font-size: 25px;
+		font-weight: 300;
+		color:rgb(48, 64, 65); 
+
+		&._init {
+			cursor: pointer;
+			position: relative;
+			&::before {
+				content: "";
+				width: 20px;
+				background-color: black;
+				height: 1px;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				transition: transform 0.3 ease 0s;
+			}
+			&::after {
+				content: "";
+				width: 20px;
+				background-color: black;
+				height: 1px;
+				transform:  rotate(-90deg);
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+			}
+			&._active{
+				&::after {transform: rotate(0deg);
+				}
+			}
+	}
+
+	&__text {
+		font-size: 20px;
+		font-weight: 200;
+		color:rgb(48, 64, 65); 
+		&:not(:last-child) {
+			margin: 0px 0px 4px/28px * 1em 0px;
+		}
+	}
+	
+}
+
+
+
+
+
+.popup {
+
+	&_add {
+	}
+
+	&__content {
+	}
+
+	&__body {
+	}
+
+	&__close {
+	}
+}
+.obratnuj-zvonok {
+}
+.form-zvonok {
+	
+	input {
+		
+		
+	}
+}
+
+.point {
+	
+
+	input {
+		margin-right: 10px;
+    	display: inline;
+		width: 15px;
+		padding: 5px;
+	}
+}
+.bot-send-mail {
+}

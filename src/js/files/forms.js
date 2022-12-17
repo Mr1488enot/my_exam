@@ -7,12 +7,20 @@ let forms = document.querySelectorAll('form');
 if (forms.length > 0) {
 	for (let index = 0; index < forms.length; index++) {
 		const el = forms[index];
+
 		el.addEventListener('submit', form_submit);
+		const button = el.querySelector('.bot-send-mail')
+
+		if (button) {
+			button.addEventListener('click', form_submit);
+		}
 	}
 }
 async function form_submit(e) {
 	let btn = e.target;
 	let form = btn.closest('form');
+
+	console.log(form)
 	let error = form_validate(form);
 	if (error == 0) {
 		let formAction = form.getAttribute('action') ? form.getAttribute('action').trim() : '#';

@@ -2008,6 +2008,69 @@ input {
   }
 }
 
+.popup .logotip {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.block {
+  margin: 25px;
+  border-top: 1px solid black;
+  padding: 10px;
+}
+.block__title {
+  width: 100%;
+  text-align: left;
+  position: relative;
+  padding-bottom: 10px;
+  font-size: 25px;
+  font-weight: 300;
+  color: rgb(48, 64, 65);
+}
+.block__title._init {
+  cursor: pointer;
+  position: relative;
+}
+.block__title._init::before {
+  content: "";
+  width: 20px;
+  background-color: black;
+  height: 1px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: transform 0.3 ease 0s;
+}
+.block__title._init::after {
+  content: "";
+  width: 20px;
+  background-color: black;
+  height: 1px;
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.block__title._active::after {
+  transform: rotate(0deg);
+}
+.block__text {
+  font-size: 20px;
+  font-weight: 200;
+  color: rgb(48, 64, 65);
+}
+.block__text:not(:last-child) {
+  margin: 0px 0px 0.1428571429em 0px;
+}
+
+.point input {
+  margin-right: 10px;
+  display: inline;
+  width: 15px;
+  padding: 5px;
+}
+
 .header {
   position: absolute;
   width: 100%;
@@ -2088,7 +2151,6 @@ input {
     overflow: auto;
     top: 30px;
     left: 0;
-    background-color: azure;
     transition: left 0.3s ease 0s;
     padding: 70px 15px 30px 15px;
   }
@@ -2139,6 +2201,9 @@ input {
   font-weight: 500;
   color: inherit;
   transition: color 0.3s ease 0s;
+}
+.menu__link._active, ._active.actions-header__region {
+  color: rgb(44, 189, 146);
 }
 
 .actions-header {
@@ -2248,6 +2313,17 @@ input {
 }
 @media (any-hover: hover) {
   .cart-list__delete:hover {
+    text-decoration: underline;
+  }
+}
+.cart-list .cart__fullprice {
+  border: 1px solid;
+  margin-top: 23px;
+  margin-left: 150px;
+  padding: 2px;
+}
+@media (any-hover: hover) {
+  .cart-list .cart__fullprice:hover {
     text-decoration: underline;
   }
 }
@@ -3513,6 +3589,114 @@ input {
   .actions-product__link:hover {
     color: rgba(111, 77, 53, 0.727);
   }
+}
+
+.certificate {
+  margin: 0 auto;
+  display: block;
+}
+.certificate__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 710px;
+  background-image: url(/img/lots/IMG_1817.jpeg);
+  opacity: 0.5;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-color: transparent;
+  border-style: solid;
+}
+@media screen and (max-width: 1199px) {
+  .certificate__container {
+    background-attachment: scroll;
+  }
+}
+.certificate__content {
+  padding: 15px;
+  width: 950px;
+  height: 350px;
+  margin: 0 auto;
+  border-width: 5px;
+  border-color: #f5f5f5;
+  border-style: solid;
+}
+
+.title__certificate-title {
+  font-size: 44px;
+  margin-top: 24px;
+  text-align: center;
+  font-weight: 600;
+  line-height: 120%;
+  margin: 0px 0px 0.3333333333em 0px;
+  color: #ffffff;
+}
+@media (max-width: 1270px) {
+  .title__certificate-title {
+    font-size: calc(24px + 20 * ((100vw - 320px) / 950));
+  }
+}
+@media (max-width: 1270px) {
+  .title__certificate-title {
+    margin-top: calc(10px + 14 * ((100vw - 320px) / 950));
+  }
+}
+
+.text__certificate-text {
+  font-size: 24px;
+  margin-top: 24px;
+  text-align: center;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0px 0px 0.3333333333em 0px;
+  color: #ffffff;
+}
+@media (max-width: 1270px) {
+  .text__certificate-text {
+    font-size: calc(10px + 14 * ((100vw - 320px) / 950));
+  }
+}
+@media (max-width: 1270px) {
+  .text__certificate-text {
+    margin-top: calc(10px + 14 * ((100vw - 320px) / 950));
+  }
+}
+
+.button__certificate {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 24px;
+  padding: 0px 15px;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0px 0px 0.3333333333em 0px;
+  color: #ffffff;
+}
+@media (max-width: 1270px) {
+  .button__certificate {
+    font-size: calc(10px + 14 * ((100vw - 320px) / 950));
+  }
+}
+.button__certificate button {
+  width: 150px;
+  height: 150px;
+  margin-top: 34px;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 200px;
+}
+@media (max-width: 1270px) {
+  .button__certificate button {
+    margin-top: calc(14px + 20 * ((100vw - 320px) / 950));
+  }
+}
+.button__certificate button a {
+  color: #ffffff;
 }
 
 .jobs {

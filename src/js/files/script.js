@@ -6,7 +6,6 @@ window.onload = function () {
 	function documentActions(e) {
 		const targetElement = e.target;
 
-		e.preventDefault();
 		/*if (window.innerWidth > 768 && isMobile.any()) {
 			if (targetElement.classList.contains('menu__arrow')) {
 				targetElement.closest('.menu__item').classList.toggle('_hover');
@@ -45,7 +44,15 @@ window.onload = function () {
 			const productId = targetElement.closest('.cart-list__item').dataset.cartPid;
 			updateCart(targetElement, productId, false);
 			e.preventDefault();
+			
 		}
+
+
+		
+
+		
+		
+		
 
 		// Header
 		const headerElement = document.querySelector('.header');
@@ -150,7 +157,7 @@ window.onload = function () {
 			let productTemplateActions = `
 		<div class="item-product__actions actions-product">
 			<div class="actions-product__body">
-			<a href="${productPodrobnee},   data-pid="2" class="actions-product__btn_podrobnee _popup-link btn_white ">Подробнее</a>
+			<a href="#popup"   data-pid="${productId}" class="actions-product__btn_podrobnee _popup-link btn_white ">Подробнее</a>
 				
 			</div>
 		</div>
@@ -174,6 +181,10 @@ window.onload = function () {
 
 		});
 
+		let popup_link = document.querySelectorAll('._popup-link');
+		let popups = document.querySelectorAll('.popup');
+
+		popup_init(popup_link, popups)
 	}
 
 	// AddToCart
@@ -235,20 +246,20 @@ window.onload = function () {
 
 }
 
-			
-		
 	
-
 	
 	function updateCart(productButton, productId, productAdd = true) {
 		const cart = document.querySelector('.cart-header');
 		const cartIcon = cart.querySelector('.cart-header__icon');
 		const cartQuantity = cartIcon.querySelector('span');
 		const cartProduct = document.querySelector(`[data-cart-pid="${productId}"]`);
+		let fullPrice = document.querySelector('.cart__fullprice')
 		const cartList = document.querySelector('.cart-list');
 
 		//Добавляем
+		
 		if (productAdd) {
+		
 			if (cartQuantity) {
 				cartQuantity.innerHTML = ++cartQuantity.innerHTML;
 			} else {
@@ -258,10 +269,12 @@ window.onload = function () {
 				const product = document.querySelector(`.item-product[data-pid="${productId}"]`);
 				const cartProductImage = product.querySelector('.item-product__image ').innerHTML;
 				const cartProductTitle = product.querySelector('.item-product__title').innerHTML;
+				const cartProductPrice = product.querySelector('.item-product__price').innerHTML;
 				const cartProductContent = `
 			<a href="" class="cart-list__image _ibg ">${cartProductImage}</a>
 			<div class="cart-list__body">
 				<a href="" class="cart-list__title">${cartProductTitle}</a>
+				<a href="" class="cart-list__title">${cartProductPrice}</a>
 				<div class="cart-list__quantity">Количество: <span>1</span></div>
 				<a href="" class="cart-list__delete">Удалить</a>
 				
@@ -271,7 +284,8 @@ window.onload = function () {
 			} else {
 				const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
 				cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
-			}
+			};
+			
 
 			// После всех действий
 			productButton.classList.remove('_hold');
@@ -293,7 +307,6 @@ window.onload = function () {
 		}
 	}
 
-	
 
 
 
