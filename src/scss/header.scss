@@ -184,7 +184,7 @@
 	}
 
 	&__body {
-		background: darkseagreen;
+		background:rgb(211, 204, 194);
 		border: 1px solid gray;
 		position: absolute;
 		top: 60px;
@@ -279,10 +279,11 @@
 	}
 
 	&__buy{
-		border: 1px solid;
 		margin-top: 23px;
+		padding: 5px;
 		margin-left: 170px;
-		padding: 2px;
+		background-color: rgb(80, 146, 117);
+		color: aliceblue;
 		@media (any-hover: hover){
 			&:hover {
 				text-decoration: underline;
